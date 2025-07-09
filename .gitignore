@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Build dir
+bin/
+
+# generated Documantation
+docs/
+README_tmp.html
+README.pdf
