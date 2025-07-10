@@ -1,4 +1,4 @@
-@PHONY: clean fmt ini test
+@PHONY: clean fmt doc ini test 
 
 ini:
 	@mkdir -p build
