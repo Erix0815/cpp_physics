@@ -4,6 +4,6 @@ project(cpp-physics
 	DESCRIPTION "A C++ library for physics simulations"
 	LANGUAGES CXX
 )
-add_executable(cpp-physics_test
-	src/test/main.cpp
-)
+
+add_subdirectory(./src/lib/)
+add_subdirectory(./src/test/)

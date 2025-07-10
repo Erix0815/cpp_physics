@@ -1,8 +1,11 @@
-@PHONY: test
+@PHONY: clean fmt ini test
 
 ini:
-	@mkdir -p bin
-	@cmake -B bin
+	@mkdir -p build
+	@cmake -B build
+
+build:
+	@make -sC build cpp-physics_lib
 
 clean:
 	@git clean -fXd
@@ -10,12 +13,9 @@ clean:
 fmt:
 	@find src/ -iname '*.h' -o -iname '*.cpp' | xargs clang-format -i
 
-test: ini
-	@make -sC bin cpp-physics_test
-	./bin/cpp-physics_test
-
-build: ini
-	$(info "make build" not implemented yet)
+test: build
+	@make -sC build cpp-physics_test
+	./build/src/test/cpp-physics_test
 
 doc:
 	doxygen Doxyfile

@@ -18,4 +18,3 @@ A custom physics engine written in C/C++
 
 - `make doc`: generate documantation
 - `make build`: build the lib\
-  not implemented yet, because there is no lib ;-;
