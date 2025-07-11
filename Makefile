@@ -1,11 +1,11 @@
 @PHONY: clean fmt doc ini test 
 
 ini:
-	@mkdir -p build
-	@cmake -B build
+	@mkdir -p bin
+	@cmake -B bin
 
 build:
-	@make -sC build cpp-physics_lib
+	@make -sC bin cpp-physics_lib
 
 clean:
 	@git clean -fXd
@@ -13,9 +13,11 @@ clean:
 fmt:
 	@find src/ -iname '*.h' -o -iname '*.cpp' | xargs clang-format -i
 
-test: build
-	@make -sC build cpp-physics_test
-	./build/src/test/cpp-physics_test
+build-test:
+	@make -sC bin cpp-physics_test
+
+test: build-test
+	./bin/src/test/cpp-physics_test
 
 doc:
 	doxygen Doxyfile
