@@ -1,4 +1,4 @@
-add_library(cpp-physics_lib
+add_library(cpp-physics_lib SHARED
 	matrix/matrix.cpp
 	matrix/matrix.hpp
 )
