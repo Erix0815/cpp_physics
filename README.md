@@ -2,7 +2,7 @@
 
 A custom physics engine written in C/C++
 
-## Reguirements
+## Requirements
 
 - `cmake` for compiling
 - `make` unless you want to type the shell-commands
@@ -18,4 +18,4 @@ A custom physics engine written in C/C++
 - `make test`: test the lib
 
 - `make doc`: generate documantation
-- `make build`: build the lib\
+- `make build`: build the lib

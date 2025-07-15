@@ -20,4 +20,4 @@ test: build-test
 	./bin/src/test/cpp-physics_test
 
 doc:
-	doxygen Doxyfile
+	@doxygen Doxyfile

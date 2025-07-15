@@ -60,7 +60,7 @@ public:
 	/**
 	 * @brief Memberwise-multiply two matrices.
 	 * @param lhs The multiplicand.
-	 * @param lhs The multiplier.
+	 * @param rhs The multiplier.
 	 * @return A new matrix containing the result.
 	 */
 	static Matrix memwise_Mul(const Matrix& lhs, const Matrix& rhs);
@@ -170,7 +170,7 @@ Matrix operator*(float scalar, const Matrix& mat) {return mat * scalar;}
 /**
  * @brief Print a matrix.
  * @param flux cout-voodoo
- * @param flux The matrix to print.
+ * @param mat The matrix to print.
  * @return cout-voodoo
  */
 std::ostream& operator<<(std::ostream &flux, const Matrix& mat);

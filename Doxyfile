@@ -6,7 +6,7 @@ PROJECT_BRIEF          = "A custom physics engine written in C/C++"
 OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
-USE_MDFILE_AS_MAINPAGE = 
+USE_MDFILE_AS_MAINPAGE = README.md
 
 # Build related configuration options
 EXTRACT_ALL            = YES
@@ -16,14 +16,14 @@ EXTRACT_LOCAL_CLASSES  = YES
 EXTRACT_ANON_NSPACES   = NO
 
 # Input
-INPUT                  = src include
+INPUT                  = README.md src/lib
 FILE_PATTERNS          = *.c *.h *.cpp *.hpp
 RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_SYMLINKS       = NO
 
 # Source Browser
-SOURCE_BROWSER         = YES
+SOURCE_BROWSER         = NO
 INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = YES
 
@@ -45,7 +45,7 @@ GENERATE_XML           = NO
 HAVE_DOT               = NO
 
 # Misc
-QUIET                  = NO
+QUIET                  = YES
 WARNINGS               = YES
 WARN_IF_UNDOCUMENTED   = YES
 WARN_IF_DOC_ERROR      = YES
