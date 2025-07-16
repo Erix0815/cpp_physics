@@ -1,9 +1,7 @@
-name: CMake
+name: Doxygen
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -11,13 +9,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-
     - name: Doxygen and Github Pages
       uses: AgarwalSaurav/ghaction-doxygen-ghpages@v2.2.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: .
-        doxyfile-path: doc/Doxyfile
-        html-output-folder: doc/html
-        branch: gh-pages
