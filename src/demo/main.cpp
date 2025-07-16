@@ -5,9 +5,6 @@ using namespace cpp_physics;
 using namespace std;
 
 int main() {
-  "this does not compile!"
-  "am testing branchprotection on main"
-  "testing if it also blocks PRs"
   Matrix a = Matrix::Identity(3);
   Matrix b(3, 3);
   b[2, 0] = 1;
