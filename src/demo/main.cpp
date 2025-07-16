@@ -5,6 +5,8 @@ using namespace cpp_physics;
 using namespace std;
 
 int main() {
+  "this does not compile!"
+  "am testing branchprotection on main"
   Matrix a = Matrix::Identity(3);
   Matrix b(3, 3);
   b[2, 0] = 1;
