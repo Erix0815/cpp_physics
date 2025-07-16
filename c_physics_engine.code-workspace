@@ -52,16 +52,18 @@
 			"stdexcept": "cpp",
 			"streambuf": "cpp",
 			"typeinfo": "cpp",
-			"cstring": "cpp"
+			"cstring": "cpp",
+			"sstream": "cpp"
 		},
-		"doxygen_runner.view_in_live_preview": true
+		"C_Cpp.doxygen.generatedStyle": "/**",
+		// quick hack, because intellisense does not recognize c++23
+	    "C_Cpp.errorSquiggles": "disabled",
 	},
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools-extension-pack",
 			"ms-vscode.makefile-tools",
 			"betwo.vscode-doxygen-runner",
-			"ms-vscode.live-server",
 		]
 	}
 }

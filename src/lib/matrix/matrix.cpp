@@ -4,10 +4,10 @@
 #include <sstream>
 #include <utility>
 
-const std::exception OOB = std::out_of_range("Row or column index out of bounds.");
-const std::exception SUBMAT_OOB = std::invalid_argument("Submatrix exceeds bounds of original matrix.");
-const std::exception DIM_MISMATCH = std::invalid_argument("Matrix-dimensions don't match.");
-const std::exception INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
+const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
+const std::invalid_argument SUBMAT_OOB = std::invalid_argument("Submatrix exceeds bounds of original matrix.");
+const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-dimensions don't match.");
+const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
 
 namespace cpp_physics {
 
@@ -19,14 +19,14 @@ Matrix::Matrix(std::size_t rows, std::size_t cols) {
 
 Matrix Matrix::Identity(std::size_t size) {
   Matrix result(size, size);
-  for (std::size_t i = 0; i < size; i++) result(i, i) = 1;
+  for (std::size_t i = 0; i < size; i++) result[i, i] = 1;
   return result;
 }
 
 std::ostream& operator<<(std::ostream& flux, const Matrix& mat) {
   std::size_t rows = mat.Shape().first;
   std::size_t cols = mat.Shape().second;
-  std::size_t maxLength[cols] = {};
+  std::vector<std::size_t> maxLength(cols, 0);
   std::stringstream ss;
 
   for (int r = 0; r < rows; r++) {
@@ -64,7 +64,7 @@ Matrix Matrix::Submatrix(std::size_t num_rows, std::size_t num_cols, std::size_t
   Matrix result(num_rows, num_cols);
   for (std::size_t r = 0; r < num_rows; r++) {
     for (std::size_t c = 0; c < num_cols; c++) {
-      result(r, c) = Get(row_start + r, col_start + c);
+      result[r, c] = Get(row_start + r, col_start + c);
     }
   }
   return result;
@@ -108,7 +108,7 @@ Matrix Matrix::operator*(const Matrix& other) const {
       for (std::size_t k = 0; k < cols; k++) {
         sum += Get(r, k) * other.Get(k, c);
       }
-      result(r, c) = sum;
+      result[r, c] = sum;
     }
   }
   return result;
@@ -150,13 +150,13 @@ Matrix Matrix::operator!() const {
   Matrix result(cols, rows);
   for (std::size_t r = 0; r < rows; r++) {
     for (std::size_t c = 0; c < cols; c++) {
-      result(c, r) = Get(r, c);
+      result[c, r] = Get(r, c);
     }
   }
   return result;
 }
 
-float& Matrix::operator()(std::size_t row, std::size_t col) {
+float& Matrix::operator[](std::size_t row, std::size_t col) {
   if (row >= this->rows || col >= this->cols) throw OOB;
   return this->data[row * this->cols + col];
 }

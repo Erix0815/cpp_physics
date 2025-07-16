@@ -150,7 +150,7 @@ public:
 	 * @param col The row of the value to access.
 	 * @return A reference to the specified value.
 	 */
-	float& operator()(std::size_t row, std::size_t col);
+	float& operator[](std::size_t row, std::size_t col);
 
 	/**
 	 * @brief Check if this matrices is equal to another matrix.

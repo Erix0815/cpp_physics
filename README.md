@@ -6,10 +6,12 @@ A custom physics engine written in C/C++
 
 - `cmake` for compiling
 - `make` unless you want to type the shell-commands
-- `gcc` or `clang` or possibly any other compiler
+- `gcc` / `clang` / possibly any other compiler
 - `gdb` for debugging
-- `clang-format` to make the code look nice
+- `clang-format` & `clang-tidy` to make the code look nice
 - `doxygen` in case you want documentation
+
+*tested only under windows with wsl, so no promises :)*
 
 ## Makefile
 

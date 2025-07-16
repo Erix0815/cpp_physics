@@ -19,3 +19,5 @@ demo: build
 
 doc:
 	@doxygen Doxyfile
+
+all: clean fmt doc build test demo
