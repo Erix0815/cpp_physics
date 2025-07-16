@@ -1,8 +1,4 @@
 #include "matrix.hpp"
-#include <cstring>
-#include <iostream>
-#include <sstream>
-#include <utility>
 
 const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
 const std::invalid_argument SUBMAT_OOB = std::invalid_argument("Submatrix exceeds bounds of original matrix.");
@@ -11,11 +7,7 @@ const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner mat
 
 namespace cpp_physics {
 
-Matrix::Matrix(std::size_t rows, std::size_t cols) {
-  this->rows = rows;
-  this->cols = cols;
-  this->data = std::vector<float>(rows * cols, 0.0f);
-}
+Matrix::Matrix(std::size_t rows, std::size_t cols) : rows(rows), cols(cols) { this->data = std::vector<float>(rows * cols, 0.0f); }
 
 Matrix Matrix::Identity(std::size_t size) {
   Matrix result(size, size);
@@ -55,8 +47,8 @@ float Matrix::Get(std::size_t row, std::size_t col) const {
   return data[row * cols + col];
 }
 
-void Matrix::applyFunction(float (*func)(float)) {
-  for (std::size_t i = 0; i < data.size(); i++) data[i] = func(data[i]);
+void Matrix::applyFunction(std::function<float(float)> func) {
+  for (float& f : data) f = func(f);
 }
 
 Matrix Matrix::Submatrix(std::size_t num_rows, std::size_t num_cols, std::size_t row_start, std::size_t col_start) const {
@@ -115,9 +107,10 @@ Matrix Matrix::operator*(const Matrix& other) const {
 }
 
 Matrix Matrix::operator*=(float scalar) {
-  for (std::size_t i = 0; i < data.size(); i++) data[i] *= scalar;
+  applyFunction([scalar](float x) { return x * scalar; });
   return *this;
 }
+
 Matrix Matrix::operator*(float scalar) const {
   Matrix result(rows, cols);
   for (std::size_t i = 0; i < data.size(); i++) result.data[i] = data[i] * scalar;
@@ -125,16 +118,17 @@ Matrix Matrix::operator*(float scalar) const {
 }
 
 Matrix Matrix::operator/=(float scalar) {
-  for (std::size_t i = 0; i < data.size(); i++) data[i] *= scalar;
+  applyFunction([scalar](float x) { return x / scalar; });
   return *this;
 }
+
 Matrix Matrix::operator/(float scalar) const {
   Matrix result(rows, cols);
   for (std::size_t i = 0; i < data.size(); i++) result.data[i] = data[i] / scalar;
   return result;
 }
 
-Matrix Matrix::operator=(const Matrix& other) const {
+Matrix Matrix::operator=(const Matrix& other) {
   Matrix result(other.rows, other.cols);
   result.data = other.data;
   return result;

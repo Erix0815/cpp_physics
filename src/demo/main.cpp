@@ -1,6 +1,5 @@
 #include "cpp-physics.hpp"
 #include <iostream>
-#include <sstream>
 
 using namespace cpp_physics;
 using namespace std;

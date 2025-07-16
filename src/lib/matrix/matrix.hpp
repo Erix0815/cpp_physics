@@ -1,9 +1,8 @@
 #ifndef matrix_hpp
 #define matrix_hpp
 
-#include <utility>
-#include <vector>
 #include <sstream>
+#include <functional>
 
 namespace cpp_physics {
 
@@ -46,7 +45,7 @@ public:
 	 * @brief Apply a function to all elements of the matrix.
 	 * @param func A function that takes a float as Argument and return a float.
 	 */
-	void applyFunction(float (*func)(float));
+	void applyFunction(std::function<float(float)> func);
 	/**
 	 * @brief Extract a Submatrix from the matrix.
 	 * @param rows Amount of rows in the Submatrix.
@@ -131,7 +130,7 @@ public:
 	 * @param other The matrix to copy.
 	 * @return A copy of the other matrix.
 	 */
-	Matrix operator=(const Matrix& other) const;
+	Matrix operator=(const Matrix& other);
 
 	/**
 	 * @brief Negate this matrix.

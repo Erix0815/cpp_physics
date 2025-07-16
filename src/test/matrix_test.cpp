@@ -1,5 +1,4 @@
 #include "cpp-physics.hpp"
-#include <utility>
 
 using namespace cpp_physics;
 
