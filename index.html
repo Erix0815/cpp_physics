@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>c_physics_engine: c_physics_engine</title>
+<title>c_physics_engine: cpp_physics</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,32 +85,29 @@ $(function(){ initResizable(false); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">c_physics_engine </div></div>
+  <div class="headertitle"><div class="title"><a class="el" href="namespacecpp__physics.html">cpp_physics</a> </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<p>A custom physics engine written in C/C++</p>
-<p><a href=""><img src="https://img.shields.io/github/check-runs/Erix0815/cpp_physics/main?nameFilter=build&amp;logo=cmake&amp;logoSize=auto&amp;label=Build-check" alt="GitHub branch check runs" class="inline"/></a> <a href="https://erix0815.github.io/cpp_physics/"><img src="https://img.shields.io/website?url=https%3A%2F%2Ferix0815.github.io%2Fcpp_physics%2F&amp;up_message=online&amp;down_message=offline&amp;logo=doxygen&amp;logoSize=auto&amp;label=GH-Pages" alt="Website" class="inline"/></a></p>
+<p>A custom physics engine written in C++</p>
+<p><a href=""><img src="https://img.shields.io/github/check-runs/Erix0815/cpp_physics/main?nameFilter=build&amp;logo=cmake&amp;logoSize=auto&amp;label=Unittests" alt="GitHub branch check runs" class="inline"/></a> <a href="https://erix0815.github.io/cpp_physics/"><img src="https://img.shields.io/website?url=https%3A%2F%2Ferix0815.github.io%2Fcpp_physics%2F&amp;up_message=online&amp;down_message=offline&amp;logo=github&amp;logoSize=auto&amp;label=GH-Pages" alt="Website" class="inline"/></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Requirements</h1>
 <ul>
-<li><code>cmake</code> for compiling</li>
-<li><code>make</code> unless you want to type the shell-commands</li>
-<li><code>gcc</code> / <code>clang</code> / possibly any other compiler</li>
-<li><code>gdb</code> for debugging</li>
-<li><code>clang-format</code> &amp; <code>clang-tidy</code> to make the code look nice</li>
-<li><code>doxygen</code> in case you want documentation</li>
+<li><code>cmake</code> &amp; <code>make</code></li>
+<li>a C++ compiler (<code>gcc</code> / <code>clang</code> / ... )</li>
+<li><code>clang-format</code> &amp; <code>clang-tidy</code></li>
+<li><code>doxygen</code></li>
 </ul>
-<p><em>tested only under windows with wsl and ubuntu-latest, so no promises :)</em></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Makefile</h1>
 <ul>
-<li><code>make clean</code>: delete files ignored by git</li>
-<li><code>make fmt</code>: format all code</li>
-<li><code>make test</code>: build and execute all unittests</li>
-<li><code>make doc</code>: generate documantation</li>
+<li><code>make demo</code>: &#160; build and run the current demo</li>
+<li><code>make test</code>: &#160; build and execute all unittests</li>
 <li><code>make build</code>: build the lib</li>
-<li><code>make demo</code>: build and run the current demo </li>
+<li><code>make doc</code>: &#160; &#160; generate documantation</li>
+<li><code>make clean</code>: delete files ignored by git</li>
+<li><code>make fmt</code>: &#160; &#160; format all code </li>
 </ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
