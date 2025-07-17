@@ -3,6 +3,6 @@
 
 #include "matrix.hpp"
 
-namespace cpp_physics{}
+namespace cpp_physics {}
 
 #endif

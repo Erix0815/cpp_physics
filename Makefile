@@ -1,4 +1,4 @@
-@PHONY: demo
+default: clean fmt doc build test demo
 
 build:
 	@mkdir -p bin
@@ -9,7 +9,7 @@ clean:
 	@git clean -fXd
 
 fmt:
-	@find src/ -iname '*.h' -o -iname '*.cpp' | xargs clang-format -i
+	@find src/ -iname '*.h' -o -iname '*.c' -o -iname '*.hpp' -o -iname '*.cpp' | xargs clang-format -i
 
 test: build
 	@make -sC bin test
@@ -19,5 +19,3 @@ demo: build
 
 doc:
 	@doxygen Doxyfile
-
-all: clean fmt doc build test demo
