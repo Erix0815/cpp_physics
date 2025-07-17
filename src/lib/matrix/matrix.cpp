@@ -1,7 +1,7 @@
 #include "matrix.hpp"
 
 const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
-const std::invalid_argument SUBMAT_OOB = std::invalid_argument("Submatrix exceeds bounds of original matrix.");
+const std::out_of_range SUBMAT_OOB = std::out_of_range("Submatrix exceeds bounds of original matrix.");
 const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-dimensions don't match.");
 const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
 
@@ -60,6 +60,32 @@ Matrix Matrix::Submatrix(std::size_t num_rows, std::size_t num_cols, std::size_t
     }
   }
   return result;
+}
+
+Matrix Matrix::memwise_Mul(const Matrix& lhs, const Matrix& rhs) {
+  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw DIM_MISMATCH;
+  Matrix result(lhs.rows, lhs.cols);
+  for (std::size_t i = 0; i < lhs.data.size(); i++) result.data[i] = lhs.data[i] * rhs.data[i];
+  return result;
+}
+
+Matrix Matrix::memwise_iMul(const Matrix& other) {
+  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  for (std::size_t i = 0; i < data.size(); i++) data[i] *= other.data[i];
+  return *this;
+}
+
+Matrix Matrix::memwise_Div(const Matrix& lhs, const Matrix& rhs) {
+  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw DIM_MISMATCH;
+  Matrix result(lhs.rows, lhs.cols);
+  for (std::size_t i = 0; i < lhs.data.size(); i++) result.data[i] = lhs.data[i] / rhs.data[i];
+  return result;
+}
+
+Matrix Matrix::memwise_iDiv(const Matrix& other) {
+  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  for (std::size_t i = 0; i < data.size(); i++) data[i] /= other.data[i];
+  return *this;
 }
 
 Matrix Matrix::operator+=(const Matrix& other) {

@@ -63,11 +63,26 @@ public:
    * @return A new matrix containing the result.
    */
   static Matrix memwise_Mul(const Matrix& lhs, const Matrix& rhs);
+
   /**
    * @brief Memberwise-multiply a matrix to this one.
    * @param other The multiplier.
    */
-  void memwise_iMul(const Matrix& other);
+  Matrix memwise_iMul(const Matrix& other);
+
+  /**
+   * @brief Memberwise-divide two matrices.
+   * @param lhs The dividend.
+   * @param rhs The divisor.
+   * @return A new matrix containing the result.
+   */
+  static Matrix memwise_Div(const Matrix& lhs, const Matrix& rhs);
+
+  /**
+   * @brief Memberwise-divide this matrix by anoter one.
+   * @param other The divisor.
+   */
+  Matrix memwise_iDiv(const Matrix& other);
 
   /**
    * @brief Add another matrix to this one.
