@@ -9,7 +9,7 @@ const std::invalid_argument TOO_FEW = std::invalid_argument("Too few matrices, m
 
 namespace cpp_physics {
 
-Matrix::Matrix(std::size_t rows, std::size_t cols) : rows(rows), cols(cols) { this->data = std::vector<float>(rows * cols, 0.0f); }
+Matrix::Matrix(std::size_t rows, std::size_t cols) : rows(rows), cols(cols) { this->data = std::vector<float>(rows * cols); }
 
 Matrix Matrix::Identity(std::size_t size) {
   Matrix result(size, size);
@@ -194,9 +194,10 @@ Matrix Matrix::operator/(float scalar) const {
 }
 
 Matrix Matrix::operator=(const Matrix& other) {
-  Matrix result(other.rows, other.cols);
-  result.data = other.data;
-  return result;
+  rows = other.rows;
+  cols = other.cols;
+  data = other.data;
+  return *this;
 }
 
 Matrix Matrix::operator-() const {

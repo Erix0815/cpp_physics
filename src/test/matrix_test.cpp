@@ -84,7 +84,30 @@ int test_scale() {
 }
 
 int test_mul() {
-  // TODO
+  const size_t tests = 5;
+  const size_t rows = 10;
+  const size_t cols = 5;
+  std::uniform_real_distribution<float> dis1(-10, 50);
+  std::uniform_real_distribution<float> dis2(-1, 3);
+  Matrix i1 = Matrix::Identity(rows);
+  Matrix i2 = Matrix::Identity(cols);
+  Matrix s(cols, cols);
+  Matrix m(rows, cols);
+
+  for (size_t t = 0; t < tests; t++) {
+    for (size_t r = 0; r < rows; r++) {
+      for (size_t c = 0; c < cols; c++) {
+        m[r, c] = dis1(gen);
+      }
+    }
+
+    if (i1 * m != m || m * i2 != m || i2 * !m != !m || !m * i1 != !m) return 1;
+    float scalar = dis2(gen);
+    s = i2 * scalar;
+    if (m * s != m * scalar) return 1;
+  }
+
+  // TODO: more tests, other that multiplying with identity-matrix & scaling
   return 0;
 }
 

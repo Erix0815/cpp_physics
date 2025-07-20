@@ -1,4 +1,4 @@
-default: clean fmt doc build test demo
+all: clean fmt doc build test demo
 
 build:
 	@mkdir -p bin

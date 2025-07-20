@@ -16,9 +16,12 @@ A custom physics engine written in C++
 
 ## Makefile
 
-- `make demo`: &nbsp; build and run the current demo
-- `make test`: &nbsp; build and execute all unittests
-- `make build`: build the lib
-- `make doc`: &nbsp; &nbsp; generate documantation
-- `make clean`: delete files ignored by git
-- `make fmt`: &nbsp; &nbsp; format all code
+| target|usage                          |
+|------:|:------------------------------|
+|  `all`|`clean fmt doc build test demo`|
+| `demo`|build and run the current demo |
+| `test`|build and execute all unittests|
+|`build`|build the lib                  |
+|  `doc`|generate documantation         |
+|  `fmt`|format all code                |
+|`clean`|delete files ignored by git    |
