@@ -101,9 +101,9 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5164454928d87ce0fc03335b9bec5a49" id="r_a5164454928d87ce0fc03335b9bec5a49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5164454928d87ce0fc03335b9bec5a49">Matrix</a> (std::size_t rows, std::size_t cols)</td></tr>
-<tr class="memdesc:a5164454928d87ce0fc03335b9bec5a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> with the specified number of rows and columns.  <br /></td></tr>
-<tr class="separator:a5164454928d87ce0fc03335b9bec5a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a868fb2d19cd5a6f6f6a7ee46667ab0f4" id="r_a868fb2d19cd5a6f6f6a7ee46667ab0f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a868fb2d19cd5a6f6f6a7ee46667ab0f4">Matrix</a> (std::size_t rows, std::size_t cols=1)</td></tr>
+<tr class="memdesc:a868fb2d19cd5a6f6f6a7ee46667ab0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> with the specified number of rows and columns.  <br /></td></tr>
+<tr class="separator:a868fb2d19cd5a6f6f6a7ee46667ab0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e5edfed452c7c8fe1ec7f10b48640e" id="r_ad1e5edfed452c7c8fe1ec7f10b48640e"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::size_t, std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1e5edfed452c7c8fe1ec7f10b48640e">Shape</a> () const</td></tr>
 <tr class="memdesc:ad1e5edfed452c7c8fe1ec7f10b48640e"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the shape of the matrix as a tuple of (rows, cols).  <br /></td></tr>
 <tr class="separator:ad1e5edfed452c7c8fe1ec7f10b48640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2c99de40fe2654d460af66d6f9ceed65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to all elements of the matrix.  <br /></td></tr>
 <tr class="separator:a2c99de40fe2654d460af66d6f9ceed65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add624e2df97291bb4deddb239d94aa7c" id="r_add624e2df97291bb4deddb239d94aa7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add624e2df97291bb4deddb239d94aa7c">Submatrix</a> (std::size_t rows, std::size_t cols, std::size_t row_start, std::size_t col_start) const</td></tr>
-<tr class="memdesc:add624e2df97291bb4deddb239d94aa7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a Submatrix from the matrix.  <br /></td></tr>
+<tr class="memdesc:add624e2df97291bb4deddb239d94aa7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a submatrix from the matrix.  <br /></td></tr>
 <tr class="separator:add624e2df97291bb4deddb239d94aa7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed9966970e655eec2a56c4065ae794f" id="r_a8ed9966970e655eec2a56c4065ae794f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ed9966970e655eec2a56c4065ae794f">memwise_iMul</a> (const <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> &amp;other)</td></tr>
 <tr class="memdesc:a8ed9966970e655eec2a56c4065ae794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memberwise-multiply a matrix to this one.  <br /></td></tr>
@@ -176,6 +176,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a719a787c2ea06c94e0f01a3129b1ace3" id="r_a719a787c2ea06c94e0f01a3129b1ace3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a719a787c2ea06c94e0f01a3129b1ace3">Identity</a> (std::size_t size)</td></tr>
 <tr class="memdesc:a719a787c2ea06c94e0f01a3129b1ace3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new identity-matrix.  <br /></td></tr>
 <tr class="separator:a719a787c2ea06c94e0f01a3129b1ace3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb2951b8145a0f03107e79b60f2e1465" id="r_aeb2951b8145a0f03107e79b60f2e1465"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb2951b8145a0f03107e79b60f2e1465">Combine</a> (std::vector&lt; <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> &gt; matrices, bool vertical=false)</td></tr>
+<tr class="memdesc:aeb2951b8145a0f03107e79b60f2e1465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combine multiple matrices into a new matrix.  <br /></td></tr>
+<tr class="separator:aeb2951b8145a0f03107e79b60f2e1465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bf142c8ac07776ff6e8e9f26c02b0a8" id="r_a5bf142c8ac07776ff6e8e9f26c02b0a8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bf142c8ac07776ff6e8e9f26c02b0a8">memwise_Mul</a> (const <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> &amp;lhs, const <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> &amp;rhs)</td></tr>
 <tr class="memdesc:a5bf142c8ac07776ff6e8e9f26c02b0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memberwise-multiply two matrices.  <br /></td></tr>
 <tr class="separator:a5bf142c8ac07776ff6e8e9f26c02b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,8 +187,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a9a7ca96bac0938ca967f95a591dfaf53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5164454928d87ce0fc03335b9bec5a49" name="a5164454928d87ce0fc03335b9bec5a49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5164454928d87ce0fc03335b9bec5a49">&#9670;&#160;</a></span>Matrix()</h2>
+<a id="a868fb2d19cd5a6f6f6a7ee46667ab0f4" name="a868fb2d19cd5a6f6f6a7ee46667ab0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a868fb2d19cd5a6f6f6a7ee46667ab0f4">&#9670;&#160;</a></span>Matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +201,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>cols</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -207,7 +210,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rows</td><td>The number of rows in the matrix. </td></tr>
-    <tr><td class="paramname">cols</td><td>The number of columns in the matrix. </td></tr>
+    <tr><td class="paramname">cols</td><td>The number of columns in the matrix. Defaults to 1. </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,6 +240,45 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aeb2951b8145a0f03107e79b60f2e1465" name="aeb2951b8145a0f03107e79b60f2e1465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2951b8145a0f03107e79b60f2e1465">&#9670;&#160;</a></span>Combine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> cpp_physics::Matrix::Combine </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>matrices</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>vertical</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Combine multiple matrices into a new matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrices</td><td>A vector containing the matrices to combine. </td></tr>
+    <tr><td class="paramname">vertical</td><td>Align the matrices horizontally or vertically. Defaults to false, for horizontal. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> containing copies of all the other matrices. </dd></dl>
 
 </div>
 </div>
@@ -886,17 +928,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Extract a Submatrix from the matrix. </p>
+<p>Extract a submatrix from the matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rows</td><td>Amount of rows in the Submatrix. </td></tr>
-    <tr><td class="paramname">cols</td><td>Amount of columns in the Submatrix. </td></tr>
+    <tr><td class="paramname">rows</td><td>Amount of rows in the submatrix. </td></tr>
+    <tr><td class="paramname">cols</td><td>Amount of columns in the submatrix. </td></tr>
     <tr><td class="paramname">row_start</td><td>The starting row index for the submatrix. </td></tr>
     <tr><td class="paramname">col_start</td><td>The starting column index for the submatrix. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classcpp__physics_1_1Matrix.html">Matrix</a> that is the submatrix extracted from this matrix. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A new submatrix. </dd></dl>
 
 </div>
 </div>

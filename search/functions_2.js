@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identity_0',['Identity',['../classcpp__physics_1_1Matrix.html#a719a787c2ea06c94e0f01a3129b1ace3',1,'cpp_physics::Matrix']]]
+  ['get_0',['Get',['../classcpp__physics_1_1Matrix.html#aeb060db173d21f0b1e5fac60d1060606',1,'cpp_physics::Matrix']]]
 ];
