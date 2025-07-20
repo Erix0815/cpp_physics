@@ -2,8 +2,10 @@
 
 const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
 const std::out_of_range SUBMAT_OOB = std::out_of_range("Submatrix exceeds bounds of original matrix.");
-const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-dimensions don't match.");
+const std::invalid_argument SHAPE_MISMATCH = std::invalid_argument("Matrix-shapes don't match.");
 const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
+const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-columns or -rows don't match.");
+const std::invalid_argument TOO_FEW = std::invalid_argument("Too few matrices, minimum 1");
 
 namespace cpp_physics {
 
@@ -62,51 +64,88 @@ Matrix Matrix::Submatrix(std::size_t num_rows, std::size_t num_cols, std::size_t
   return result;
 }
 
+Matrix Matrix::Combine(std::vector<Matrix> matrices, bool vertical) {
+  if (matrices.size() == 0) throw TOO_FEW;
+  std::size_t rows = matrices[0].rows;
+  std::size_t cols = matrices[0].cols;
+  std::vector<std::size_t> breakpoints(matrices.size(), 0);
+
+  for (std::size_t i = 1; i < matrices.size(); i++) {
+    if (vertical && cols != matrices[i].cols || !vertical && rows != matrices[i].rows) throw DIM_MISMATCH;
+    if (vertical) {
+      breakpoints[i] = rows;
+      rows += matrices[i].rows;
+    } else {
+      breakpoints[i] = cols;
+      cols += matrices[i].cols;
+    }
+  }
+
+  Matrix result(rows, cols);
+  for (std::size_t i = 0; i < matrices.size(); i++) {
+    std::size_t r_offset = 0;
+    std::size_t c_offset = 0;
+
+    if (vertical)
+      r_offset = breakpoints[i];
+    else
+      c_offset = breakpoints[i];
+
+    for (std::size_t r = 0; r < matrices[i].rows; r++) {
+      for (std::size_t c = 0; c < matrices[i].cols; c++) {
+        result[r_offset + r, c_offset + c] = matrices[i][r, c];
+      }
+    }
+  }
+
+  return result;
+}
+
 Matrix Matrix::memwise_Mul(const Matrix& lhs, const Matrix& rhs) {
-  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw DIM_MISMATCH;
+  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw SHAPE_MISMATCH;
   Matrix result(lhs.rows, lhs.cols);
   for (std::size_t i = 0; i < lhs.data.size(); i++) result.data[i] = lhs.data[i] * rhs.data[i];
   return result;
 }
 
 Matrix Matrix::memwise_iMul(const Matrix& other) {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   for (std::size_t i = 0; i < data.size(); i++) data[i] *= other.data[i];
   return *this;
 }
 
 Matrix Matrix::memwise_Div(const Matrix& lhs, const Matrix& rhs) {
-  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw DIM_MISMATCH;
+  if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw SHAPE_MISMATCH;
   Matrix result(lhs.rows, lhs.cols);
   for (std::size_t i = 0; i < lhs.data.size(); i++) result.data[i] = lhs.data[i] / rhs.data[i];
   return result;
 }
 
 Matrix Matrix::memwise_iDiv(const Matrix& other) {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   for (std::size_t i = 0; i < data.size(); i++) data[i] /= other.data[i];
   return *this;
 }
 
 Matrix Matrix::operator+=(const Matrix& other) {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   for (std::size_t i = 0; i < data.size(); i++) data[i] += other.data[i];
   return *this;
 }
 Matrix Matrix::operator+(const Matrix& other) const {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   Matrix result(rows, cols);
   for (std::size_t i = 0; i < data.size(); i++) result.data[i] = data[i] + other.data[i];
   return result;
 }
 
 Matrix Matrix::operator-=(const Matrix& other) {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   for (std::size_t i = 0; i < data.size(); i++) data[i] -= other.data[i];
   return *this;
 }
 Matrix Matrix::operator-(const Matrix& other) const {
-  if (rows != other.rows || cols != other.cols) throw DIM_MISMATCH;
+  if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   Matrix result(rows, cols);
   for (std::size_t i = 0; i < data.size(); i++) result.data[i] = data[i] - other.data[i];
   return result;

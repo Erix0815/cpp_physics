@@ -16,9 +16,9 @@ public:
   /**
    * @brief Constructs a Matrix with the specified number of rows and columns.
    * @param rows The number of rows in the matrix.
-   * @param cols The number of columns in the matrix.
+   * @param cols The number of columns in the matrix. Defaults to 1.
    */
-  Matrix(std::size_t rows, std::size_t cols);
+  Matrix(std::size_t rows, std::size_t cols = 1);
 
   /**
    * @brief Creates a new identity-matrix
@@ -46,15 +46,24 @@ public:
    * @param func A function that takes a float as Argument and return a float.
    */
   void applyFunction(std::function<float(float)> func);
+
   /**
-   * @brief Extract a Submatrix from the matrix.
-   * @param rows Amount of rows in the Submatrix.
-   * @param cols Amount of columns in the Submatrix.
+   * @brief Extract a submatrix from the matrix.
+   * @param rows Amount of rows in the submatrix.
+   * @param cols Amount of columns in the submatrix.
    * @param row_start The starting row index for the submatrix.
    * @param col_start The starting column index for the submatrix.
-   * @return A new Matrix that is the submatrix extracted from this matrix.
+   * @return A new submatrix.
    */
   Matrix Submatrix(std::size_t rows, std::size_t cols, std::size_t row_start, std::size_t col_start) const;
+
+  /**
+   * @brief Combine multiple matrices into a new matrix.
+   * @param matrices A vector containing the matrices to combine.
+   * @param vertical Align the matrices horizontally or vertically. Defaults to false, for horizontal.
+   * @return A new Matrix containing copies of all the other matrices.
+   */
+  static Matrix Combine(std::vector<Matrix> matrices, bool vertical = false);
 
   /**
    * @brief Memberwise-multiply two matrices.

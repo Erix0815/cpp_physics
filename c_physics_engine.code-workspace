@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
+		"terminal.integrated.cwd": "${workspaceFolder}",
 		"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 		"cmake.buildDirectory": "${workspaceFolder}/bin",
 		"files.associations": {
@@ -56,8 +57,9 @@
 			"sstream": "cpp"
 		},
 		"C_Cpp.doxygen.generatedStyle": "/**",
+		// "C_Cpp.formatting": "clangFormat",
 		// quick hack, because intellisense does not recognize c++23
-	    "C_Cpp.errorSquiggles": "disabled",
+		"C_Cpp.errorSquiggles": "disabled",
 	},
 	"extensions": {
 		"recommendations": [

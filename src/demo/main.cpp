@@ -2,15 +2,12 @@
 #include <iostream>
 
 using namespace cpp_physics;
-using namespace std;
 
 int main() {
-  Matrix a = Matrix::Identity(3);
-  Matrix b(3, 3);
-  b[2, 0] = 1;
-  b[1, 1] = 1;
-  b[0, 2] = 1;
-  Matrix c = a + b;
-  std::cout << c << std::endl;
+  Matrix a = Matrix::Identity(2);
+  Matrix b = Matrix::Combine({a, 2 * a});
+  Matrix c = Matrix::Combine({b, 4 * b}, true);
+  Matrix d = c.Submatrix(2, 4, 1, 0);
+  std::cout << d << std::endl;
   return 0;
 }
