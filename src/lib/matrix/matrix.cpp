@@ -1,12 +1,5 @@
 #include "matrix.hpp"
 
-const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
-const std::out_of_range SUBMAT_OOB = std::out_of_range("Submatrix exceeds bounds of original matrix.");
-const std::invalid_argument SHAPE_MISMATCH = std::invalid_argument("Matrix-shapes don't match.");
-const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
-const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-columns or -rows don't match.");
-const std::invalid_argument TOO_FEW = std::invalid_argument("Too few matrices, minimum 1");
-
 namespace cpp_physics {
 
 Matrix::Matrix(std::size_t rows, std::size_t cols) : rows(rows), cols(cols) { this->data = std::vector<float>(rows * cols); }
@@ -101,6 +94,12 @@ Matrix Matrix::Combine(std::vector<Matrix> matrices, bool vertical) {
   return result;
 }
 
+float Matrix::Sum() const {
+  float sum = 0;
+  for (float f : data) sum += f;
+  return sum;
+}
+
 Matrix Matrix::memwise_Mul(const Matrix& lhs, const Matrix& rhs) {
   if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw SHAPE_MISMATCH;
   Matrix result(lhs.rows, lhs.cols);
@@ -115,6 +114,7 @@ Matrix Matrix::memwise_iMul(const Matrix& other) {
 }
 
 Matrix Matrix::memwise_Div(const Matrix& lhs, const Matrix& rhs) {
+  // TODO check for division by 0
   if (lhs.rows != rhs.rows || lhs.cols != rhs.cols) throw SHAPE_MISMATCH;
   Matrix result(lhs.rows, lhs.cols);
   for (std::size_t i = 0; i < lhs.data.size(); i++) result.data[i] = lhs.data[i] / rhs.data[i];
@@ -122,6 +122,7 @@ Matrix Matrix::memwise_Div(const Matrix& lhs, const Matrix& rhs) {
 }
 
 Matrix Matrix::memwise_iDiv(const Matrix& other) {
+  // TODO check for division by 0
   if (rows != other.rows || cols != other.cols) throw SHAPE_MISMATCH;
   for (std::size_t i = 0; i < data.size(); i++) data[i] /= other.data[i];
   return *this;
@@ -183,11 +184,13 @@ Matrix Matrix::operator*(float scalar) const {
 }
 
 Matrix Matrix::operator/=(float scalar) {
+  if (scalar == 0) throw DIV_ZERO;
   applyFunction([scalar](float x) { return x / scalar; });
   return *this;
 }
 
 Matrix Matrix::operator/(float scalar) const {
+  if (scalar == 0) throw DIV_ZERO;
   Matrix result(rows, cols);
   for (std::size_t i = 0; i < data.size(); i++) result.data[i] = data[i] / scalar;
   return result;

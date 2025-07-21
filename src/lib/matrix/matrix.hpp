@@ -6,6 +6,14 @@
 
 namespace cpp_physics {
 
+const std::out_of_range OOB = std::out_of_range("Row or column index out of bounds.");
+const std::out_of_range SUBMAT_OOB = std::out_of_range("Submatrix exceeds bounds of original matrix.");
+const std::invalid_argument SHAPE_MISMATCH = std::invalid_argument("Matrix-shapes don't match.");
+const std::invalid_argument INNERDIM_MISMATCH = std::invalid_argument("Inner matrix-dimensions don't align.");
+const std::invalid_argument DIM_MISMATCH = std::invalid_argument("Matrix-columns or -rows don't match.");
+const std::invalid_argument TOO_FEW = std::invalid_argument("Too few matrices, minimum 1.");
+const std::invalid_argument DIV_ZERO = std::invalid_argument("Division by 0.");
+
 class Matrix {
 private:
   std::vector<float> data;
@@ -64,6 +72,12 @@ public:
    * @return A new Matrix containing copies of all the other matrices.
    */
   static Matrix Combine(std::vector<Matrix> matrices, bool vertical = false);
+
+  /**
+   * @brief Sum all elements in the matrix.
+   * @return The sum of all elements.
+   */
+  float Sum() const;
 
   /**
    * @brief Memberwise-multiply two matrices.
