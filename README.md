@@ -30,4 +30,4 @@ A custom physics engine written in C++
 ## Usage
 
 After installing the library you can include it using `#include <cpp-physics/cpp-physics.hpp>`.
-Dont forget to also link the library when compiling. (e.g.: `-l cpp-physics`)
+Dont forget to also link the library when compiling (e.g.: `-l cpp-physics`).
