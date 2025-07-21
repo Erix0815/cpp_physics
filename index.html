@@ -95,8 +95,8 @@ $(function(){ initResizable(false); });
 Requirements</h1>
 <ul>
 <li><code>cmake</code> &amp; <code>make</code></li>
-<li>a C++ compiler (<code>gcc</code> / <code>clang</code> / ... )</li>
-<li><code>clang-format</code> &amp; <code>clang-tidy</code></li>
+<li>a C++ compiler implementing C++23 (<code>gcc</code>&ge;13 / <code>clang</code>&ge;18 / ... )</li>
+<li><code>clang-format</code> &amp; <code>clang-tidy</code> (both &ge;18)</li>
 <li><code>doxygen</code></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
@@ -105,20 +105,25 @@ Makefile</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">target   </th><th class="markdownTableHeadLeft">usage    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>all</code>   </td><td class="markdownTableBodyLeft"><code>clean fmt doc build test demo</code>    </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>demo</code>   </td><td class="markdownTableBodyLeft">build and run the current demo    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>test</code>   </td><td class="markdownTableBodyLeft">build and execute all unittests    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>build</code>   </td><td class="markdownTableBodyLeft">build the lib    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>doc</code>   </td><td class="markdownTableBodyLeft">generate documantation    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>fmt</code>   </td><td class="markdownTableBodyLeft">format all code    </td></tr>
+<td class="markdownTableBodyRight"><code>doc</code>   </td><td class="markdownTableBodyLeft">generate documantation    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>clean</code>   </td><td class="markdownTableBodyLeft">delete files ignored by git   </td></tr>
+<td class="markdownTableBodyRight"><code>fmt</code>   </td><td class="markdownTableBodyLeft">format all code    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>clean</code>   </td><td class="markdownTableBodyLeft">delete files ignored by git    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>install</code>   </td><td class="markdownTableBodyLeft">install the library    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>remove</code>   </td><td class="markdownTableBodyLeft">uninstall the library   </td></tr>
 </table>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Usage</h1>
+<p>After installing the library you can include it using <code>#include &lt;cpp-physics/cpp-physics.hpp&gt;</code>.\ Dont forget to also link the library when compiling. (e.g.: <code>-l cpp-physics</code>) </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
