@@ -20,11 +20,11 @@ A custom physics engine written in C++
 |--------:|:------------------------------|
 |   `demo`|build and run the current demo |
 |   `test`|build and execute all unittests|
-|  `build`|build the lib                  |
+|  `build`|build the library              |
 |    `doc`|generate documantation         |
 |    `fmt`|format all code                |
 |  `clean`|delete files ignored by git    |
-|`install`|install the library            |
+|`install`|build and install the library  |
 | `remove`|uninstall the library          |
 
 ## Usage
