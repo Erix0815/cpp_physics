@@ -1,4 +1,4 @@
-all: clean fmt doc build test demo
+default: clean fmt demo
 
 build:
 	@mkdir -p bin
@@ -19,3 +19,10 @@ demo: build
 
 doc:
 	@doxygen Doxyfile
+
+install: build
+	@sudo cmake --install bin
+
+remove:
+	@sudo rm -f /usr/local/lib/libcpp-physics.*
+	@sudo rm -rf /usr/local/include/cpp-physics

@@ -231,4 +231,6 @@ bool Matrix::operator!=(const Matrix& other) {
   return data != other.data;
 }
 
+Matrix operator*(float scalar, const Matrix& mat) { return mat * scalar; }
+
 } // namespace cpp_physics

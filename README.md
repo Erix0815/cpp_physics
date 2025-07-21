@@ -10,18 +10,24 @@ A custom physics engine written in C++
 ## Requirements
 
 - `cmake` & `make`
-- a C++ compiler (`gcc` / `clang` / ... )
-- `clang-format` & `clang-tidy`
+- a C++ compiler implementing C++23 (`gcc`&ge;13 / `clang`&ge;18 / ... )
+- `clang-format` & `clang-tidy` (both &ge;18)
 - `doxygen`
 
 ## Makefile
 
-| target|usage                          |
-|------:|:------------------------------|
-|  `all`|`clean fmt doc build test demo`|
-| `demo`|build and run the current demo |
-| `test`|build and execute all unittests|
-|`build`|build the lib                  |
-|  `doc`|generate documantation         |
-|  `fmt`|format all code                |
-|`clean`|delete files ignored by git    |
+|   target|usage                          |
+|--------:|:------------------------------|
+|   `demo`|build and run the current demo |
+|   `test`|build and execute all unittests|
+|  `build`|build the lib                  |
+|    `doc`|generate documantation         |
+|    `fmt`|format all code                |
+|  `clean`|delete files ignored by git    |
+|`install`|install the library            |
+| `remove`|uninstall the library          |
+
+## Usage
+
+After installing the library you can include it using `#include <cpp-physics/cpp-physics.hpp>`.\
+Dont forget to also link the library when compiling. (e.g.: `-l cpp-physics`)

@@ -189,7 +189,14 @@ public:
   bool operator!=(const Matrix& other);
 };
 
-Matrix operator*(float scalar, const Matrix& mat) { return mat * scalar; }
+/**
+ * @brief Scale a matrix.
+ * @param scalar The scalar to scale by.
+ * @param mat The matrix to scale.
+ * @return A new matrix containing the result.
+ */
+Matrix operator*(float scalar, const Matrix& mat);
+
 /**
  * @brief Print a matrix.
  * @param flux cout-voodoo

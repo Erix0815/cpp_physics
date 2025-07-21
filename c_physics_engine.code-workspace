@@ -57,7 +57,7 @@
 			"sstream": "cpp"
 		},
 		"C_Cpp.doxygen.generatedStyle": "/**",
-		// "C_Cpp.formatting": "clangFormat",
+		"C_Cpp.formatting": "clangFormat",
 		// quick hack, because intellisense does not recognize c++23
 		"C_Cpp.errorSquiggles": "disabled",
 	},
