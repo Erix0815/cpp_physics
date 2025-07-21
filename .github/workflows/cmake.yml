@@ -16,5 +16,11 @@ jobs:
     - name: Compiling
       run: make build
 
-    - name: Testing
+    - name: Running unittests
       run: make test
+
+    - name: Installing
+      run: make install
+
+    - name: Testing installation
+      run: source src/test/test_install.sh
